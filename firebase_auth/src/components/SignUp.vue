@@ -61,8 +61,8 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(user => {
-          alert("완료");
-          console.log(user);
+          alert(`Ş Û Ć Ć Ş Ş Ę Ş`);
+          this.$router.push("/");
         })
         .catch(error => {
           alert(error.message);

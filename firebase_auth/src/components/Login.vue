@@ -38,7 +38,7 @@
         </b-form-group>
       </b-form>
       <br />
-      <b-button variant="success">Ĵ Ø ļ Ń</b-button>
+      <b-button variant="success" @click="login">Ĵ Ø ļ Ń</b-button>
       <br />
       <p class="mt-3">
         Don't you have an account? Please
@@ -48,12 +48,28 @@
   </div>
 </template>
 <script>
+import firebase from "firebase";
 export default {
   data() {
     return {
       email: "",
       password: ""
     };
+  },
+  methods: {
+    login() {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(user => {
+          alert(`Ŵ Ę Ł Ć Ø M Ę`);
+          this.$router.push("/");
+        })
+        .catch(error => {
+          alert(error.message);
+          console.log(error);
+        });
+    }
   }
 };
 </script>
